@@ -15,5 +15,4 @@ docker run --rm -i \
     "${IMAGE}:${TAG}" "$@"
 
 RESULT=$?
-
 exit ${RESULT}
