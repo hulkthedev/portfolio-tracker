@@ -28,10 +28,11 @@ echo "__set permissions"
 echo "__install project dependencies"
   ./npm.sh install
 
-  if [ -z "$1" ]; then
-    echo "__starting app"
-    ./app.sh start
-  fi
+
+if [ -z "$1" ]; then
+  echo "__starting app"
+  ./app.sh start
+fi
 
 RESULT=$?
 exit ${RESULT}
