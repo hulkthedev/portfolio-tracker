@@ -1,30 +1,22 @@
-FROM node:16.13.0-alpine3.14 AS development
+FROM node:16.13.0-alpine3.14
 
-WORKDIR /usr/src/app
+LABEL version="1.0" \
+      maintainer="fatal.error.27@gmail.com"
 
-COPY package*.json ./
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache \
+        bash
 
-RUN npm install
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone
 
-RUN npm install --only=development
+ENV NODE_ENV=development
 
-COPY . .
+WORKDIR /app
 
-RUN npm run build
+RUN npm install -g npm@8.1.4 \
+    npm audit fix
 
-FROM node:16.13.0-alpine3.14 as production
-
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install --only=production
-
-COPY . .
-
-COPY --from=development /usr/src/app/dist ./dist
-
-CMD ["node", "dist/main"]
+CMD [ "npm" ]
