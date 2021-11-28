@@ -1,27 +1,31 @@
-import { Controller, Render, Get, Redirect } from '@nestjs/common';
+import { Controller, Res, Get, Redirect } from '@nestjs/common';
 import { BaseController } from "./base.controller";
+import { Response } from 'express';
 
-@Controller("/")
+@Controller('/')
 export class PagesController extends BaseController {
+
     @Get()
     @Redirect()
     root() {
-        /**
-         * @todo add logic
-         */
         let loggedIn = false;
+
+        /**
+         * logic
+         */
+
         if (loggedIn) {
             return this.redirect('overview');
         }
 
-        // return { url: 'login', statusCode: 302 };
         return this.redirect('login');
     }
 
     @Get('login')
-    @Render('page/login')
-    login() {
-        let output = this.appService.login();
-        return { message: output };
+    login(@Res() response: Response): void {
+        return response.render('page/login', {
+            title: 'Login',
+            layout: 'layout/login'
+        });
     }
 }
