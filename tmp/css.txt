@@ -1,3 +1,6 @@
 https://materializecss.com
 https://getuikit.com/
 https://semantic-ui.com/
+
+NEST CLI
+https://json.schemastore.org/nest-cli
