@@ -1,4 +1,4 @@
-# portfolio-tracker
+# Portfolio Tracker
 
 [![Version](https://img.shields.io/badge/Version-0.0.1-blue)](https://github.com/hulkthedev/portfolio-tracker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
