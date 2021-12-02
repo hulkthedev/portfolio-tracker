@@ -17,15 +17,15 @@ fi
 cd "${PROJECT_DIR}" || exit
 
 if [ "$1" = "start" ]; then
-  echo "@@@ starting app..."
+  echo "@@@ starting app ..."
   docker-compose up -d
 
 elif [ "$1" = "stop" ]; then
-  echo "@@@ stopping app..."
+  echo "@@@ stopping app ..."
   docker-compose down
 
 elif [ "$1" = "build" ]; then
-  echo "@@@ building app..."
+  echo "@@@ building app ..."
   docker-compose -f docker-compose.yml build
 
   echo "@@@ install project dependencies"
@@ -33,7 +33,7 @@ elif [ "$1" = "build" ]; then
   "${BUILD_DIR}"/npm.sh install
 
 elif [ "$1" = "test" ]; then
-  echo "@@@ testing app..."
+  echo "@@@ testing app ..."
   "${BUILD_DIR}"/npm.sh test
 
 else
