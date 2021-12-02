@@ -28,7 +28,6 @@ elif [ "$1" = "build" ]; then
   echo "@@@ building app ..."
   docker-compose -f docker-compose.yml build
 
-  echo "@@@ install project dependencies"
   chmod +x "${BUILD_DIR}"/npm.sh
   "${BUILD_DIR}"/npm.sh install
 
