@@ -15,7 +15,11 @@ describe('AuthenticationController', () => {
     describe('authenticate', () => {
         it('should return true', () => {
             const authenticationController = app.get<AuthenticationController>(AuthenticationController);
-            expect(authenticationController.authenticate()).toBe({"valid": true});
+            expect(authenticationController.authenticate()).toStrictEqual({
+                "redirect": true,
+                "timestamp": 5565464456,
+                "valid": true
+            });
         });
     });
 });

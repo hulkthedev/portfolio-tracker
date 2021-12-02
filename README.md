@@ -7,15 +7,12 @@ NestJS based Portfolio Tracker "Backend"
 
 ##### requirements
 - docker
-- docker-compose
+- docker-compose (optional)
 
 ##### build
 ```bash
-chmod +x build/build.sh
-./build/build.sh
-
-# build without startup
-./build/build.sh --silent
+chmod +x build/app.sh
+./build/app.sh build
 ```
 
 ##### app control
@@ -26,7 +23,7 @@ chmod +x build/build.sh
 
 ##### tests
 ```bash
-./build/test.sh
+./build/app.sh test 
 ```
 
 ##### usage
