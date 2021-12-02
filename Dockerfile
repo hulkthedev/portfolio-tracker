@@ -19,6 +19,5 @@ WORKDIR /app
 
 RUN npm install -g npm@8.1.4
 RUN npm install -g @nestjs/cli
-RUN npm install --save hbs
 
 CMD [ "sh" ]
